@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>生成验证码</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #ffcccc, #99ccff);
+      }
+
+      .container {
+        text-align: center;
+        padding: 20px;
+        border-radius: 5px;
+      }
+
+      .input-box {
+        margin-bottom: 10px;
+      }
+
+      .result {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">生成验证码</h1>
+      <div class="input-box">
+        <label for="length" id="length-label">请输入验证码位数:</label>
+        <input type="number" id="length" min="1" max="10" value="5"/>
+      </div>
+      <button onclick="generateCode()" id="generate-button">生成验证码</button>
+      <div class="result" id="result"></div>
+
+      <button onclick="toggleLanguage()" id="language-button">切换语言</button>
+    </div>
+
+    <script>
+      var isEnglish = true;
+
+      function generateCode() {
+        var length = document.getElementById("length").value;
+        var code = "";
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        for (var i = 0; i < length; i++) {
+          code += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        document.getElementById("result").innerText = code;
+      }
+
+      function toggleLanguage() {
+        isEnglish = !isEnglish;
+        var titleText = isEnglish ? "生成验证码" : "Generate Verification Code";
+        var lengthLabelText = isEnglish ? "请输入验证码位数:" : "Enter the Length of Verification Code:";
+        var generateButtonText = isEnglish ? "生成验证码" : "Generate Code";
+        var languageButtonText = isEnglish ? "切换语言" : "Toggle Language";
+
+        document.getElementById("title").innerText = titleText;
+        document.getElementById("length-label").innerText = lengthLabelText;
+        document.getElementById("generate-button").innerText = generateButtonText;
+        document.getElementById("language-button").innerText = languageButtonText;
+      }
+    </script>
+  </body>
+</html>
