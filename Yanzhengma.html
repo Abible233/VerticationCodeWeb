@@ -36,7 +36,7 @@
       <button onclick="generateCode()" id="generate-button">生成验证码</button>
       <div class="result" id="result"></div>
 
-      <button onclick="toggleLanguage()" id="language-button">切换语言</button>
+      <button onclick="toggleLanguage()" id="language-button">change language</button>
     </div>
 
     <script>
@@ -57,7 +57,7 @@
         var titleText = isEnglish ? "生成验证码" : "Generate Verification Code";
         var lengthLabelText = isEnglish ? "请输入验证码位数:" : "Enter the Length of Verification Code:";
         var generateButtonText = isEnglish ? "生成验证码" : "Generate Code";
-        var languageButtonText = isEnglish ? "切换语言" : "Toggle Language";
+        var languageButtonText = isEnglish ? "Toggle Language" : "切换语言";
 
         document.getElementById("title").innerText = titleText;
         document.getElementById("length-label").innerText = lengthLabelText;
